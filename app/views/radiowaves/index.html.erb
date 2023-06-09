@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Radiowaves</h1>
+
+<div id="radiowaves">
+  <% @radiowaves.each do |radiowafe| %>
+    <%= render radiowafe %>
+    <p>
+      <%= link_to "Show this radiowave", radiowafe %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New radiowave", new_radiowafe_path %>

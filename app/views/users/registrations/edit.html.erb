@@ -41,3 +41,16 @@
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <%= link_to "Back", :back %>
+editer tes infos ou
+ <button id="myBtn">Ajouter un lieu</button>
+
+  <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+           <!-- Modal content -->
+                  <div class="modal-content">
+                                 <span class="close">&times;</span>
+                                              <div><%= render "places/form", place: Place.new %></div>
+                                                                 </div>
+
+                                                                  </div>

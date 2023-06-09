@@ -1,0 +1,2 @@
+class Radiowave < ApplicationRecord
+end

@@ -10,12 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_08_193457) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_09_140417) do
   create_table "create_places", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
     t.string "lat"
     t.string "lon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "musics", force: :cascade do |t|
+    t.string "filename"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "radios", force: :cascade do |t|
+    t.integer "radiowave_id"
+    t.integer "music_id"
+  end
+
+  create_table "radiowaves", force: :cascade do |t|
+    t.float "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

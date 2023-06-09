@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :musics
+  resources :radiowaves
   resources :places
   resources :create_places
   get 'user/info'
