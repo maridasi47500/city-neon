@@ -1,0 +1,68 @@
+.container1 .neonText {
+	  animation: flicker 1.5s infinite alternate;
+	    color: #fff;
+    }
+
+    .container1 h1 {
+	      font-size: 4.2rem;    
+      }
+
+      /* Flickering animation */
+      @keyframes flicker {
+	          
+	        0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+			      text-shadow:
+			            0 0 4px #fff,
+				          0 0 11px #fff,
+					        0 0 19px #fff,
+						      0 0 40px #0fa,
+						            0 0 80px #0fa,
+							          0 0 90px #0fa,
+								        0 0 100px #0fa,
+									      0 0 150px #0fa;
+									        
+									        }
+										  
+										  20%, 24%, 55% {        
+											        text-shadow: none;
+												  }    
+											  }
+
+
+											  /* Additional styling */
+											    
+											  .container1 h2 {
+												   font-size: 1.8rem;
+											   }
+											   .container1 {
+												   width:300px;
+												   height:300px;
+												     margin-top: 20vh;
+											     }
+
+											     body.welcome_index {
+												       font-size: 18px;
+												         font-family: "Helvetica Neue", sans-serif;
+													   background-color: linear-gradient(to right, black , blue);
+												   }  
+
+												   .container1 h1, .container1 h2 {
+													     text-align: center;
+													       text-transform: uppercase;
+													         font-weight: 400;
+													 }
+													 .musiclive {
+														     background: white;
+														         font-size: 40px;
+															     border: 20px dotted red;
+															         border-radius: 9999999px;
+															 }
+															 nav .myplace, a.myplace, a.myplace:visited, a.myplace:link, a.myplace:hover {
+																     float: left;
+																         display: flex;
+																	     color: #ff43ff;
+																	         font-size: 90px;
+																		     border: dotted;
+																	     }
+																	     .container2 {float:left}

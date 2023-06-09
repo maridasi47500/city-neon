@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Create places</h1>
+
+<div id="create_places">
+  <% @create_places.each do |create_place| %>
+    <%= render create_place %>
+    <p>
+      <%= link_to "Show this create place", create_place %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New create place", new_create_place_path %>
