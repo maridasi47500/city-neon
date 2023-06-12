@@ -1,4 +1,5 @@
 class MusicsController < ApplicationController
+  protect_from_forgery except:[:addmusics]
   before_action :set_music, only: %i[ show edit update destroy ]
 
   # GET /musics or /musics.json
@@ -20,6 +21,21 @@ class MusicsController < ApplicationController
   end
 
   # POST /musics or /musics.json
+  def addmusics
+    @music = Music.new(music_params)
+
+    respond_to do |format|
+      if @music.save
+        HitJob.perform_now(@music.myradio,@music)
+        #format.html { redirect_to music_url(@music), notice: "Music was successfully created." }
+        #format.json { render :show, status: :created, location: @music }
+        format.js
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @music.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   def create
     @music = Music.new(music_params)
 
@@ -65,6 +81,6 @@ class MusicsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def music_params
-      params.require(:music).permit(:filename)
+      params.require(:music).permit(:filename,:myradio)
     end
 end

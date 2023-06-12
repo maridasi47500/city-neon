@@ -1,4 +1,4 @@
-<%= form_with(model: music) do |form| %>
+<%= form_with(model: music,html:{onsubmit: "submitmusic();return false;"}) do |form| %>
   <% if music.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(music.errors.count, "error") %> prohibited this music from being saved:</h2>
@@ -13,8 +13,10 @@
 
   <div>
     <%= form.label :filename, style: "display: block" %>
-    <%= form.text_field :filename %>
+    <%= form.file_field :filename, id: "file" %>
+
   </div>
+       <%= form.hidden_field :myradio,id:"myradio" %>
 
   <div>
     <%= form.submit %>

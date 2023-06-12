@@ -5,14 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%=action_cable_meta_tag%>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+      <script src="/js/audiodisplay.js"></script>
+      <script src="/js/recorderjs/recorder.js"></script>
+      <script src="/js/main.js"></script>
+
     <link rel="stylesheet" href="/assets/<%=params[:controller]%>_<%=params[:action]%>.css" />
     <link href='https://fonts.googleapis.com/css?family=Vibur:400' rel='stylesheet' type='text/css'>
   </head>
 
   <body class="<%=params[:controller]%>_<%=params[:action]%>">
+    <a href="/users/sign_in">connexion</a>
+    <a href="/users/sign_up">inscription</a>
+    <%if user_signed_in?%>
+      <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
+    <%end%>
     <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="/assets/<%=params[:controller]%>_<%=params[:action]%>.js" type="text/javascript" />
   </body>
 </html>

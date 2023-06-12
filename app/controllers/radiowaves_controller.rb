@@ -1,5 +1,5 @@
 class RadiowavesController < ApplicationController
-  before_action :set_radiowafe, only: %i[ show edit update destroy ]
+  before_action :set_radiowave, only: %i[ show edit update destroy ]
 
   # GET /radiowaves or /radiowaves.json
   def index
@@ -8,11 +8,12 @@ class RadiowavesController < ApplicationController
 
   # GET /radiowaves/1 or /radiowaves/1.json
   def show
+    @music=Music.new(myradio:@radiowave.id)
   end
 
   # GET /radiowaves/new
   def new
-    @radiowafe = Radiowave.new
+    @radiowave = Radiowave.new
   end
 
   # GET /radiowaves/1/edit
@@ -21,15 +22,15 @@ class RadiowavesController < ApplicationController
 
   # POST /radiowaves or /radiowaves.json
   def create
-    @radiowafe = Radiowave.new(radiowafe_params)
+    @radiowave = Radiowave.new(radiowave_params)
 
     respond_to do |format|
-      if @radiowafe.save
-        format.html { redirect_to radiowafe_url(@radiowafe), notice: "Radiowave was successfully created." }
-        format.json { render :show, status: :created, location: @radiowafe }
+      if @radiowave.save
+        format.html { redirect_to radiowave_url(@radiowave), notice: "Radiowave was successfully created." }
+        format.json { render :show, status: :created, location: @radiowave }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @radiowafe.errors, status: :unprocessable_entity }
+        format.json { render json: @radiowave.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -37,19 +38,19 @@ class RadiowavesController < ApplicationController
   # PATCH/PUT /radiowaves/1 or /radiowaves/1.json
   def update
     respond_to do |format|
-      if @radiowafe.update(radiowafe_params)
-        format.html { redirect_to radiowafe_url(@radiowafe), notice: "Radiowave was successfully updated." }
-        format.json { render :show, status: :ok, location: @radiowafe }
+      if @radiowave.update(radiowave_params)
+        format.html { redirect_to radiowave_url(@radiowave), notice: "Radiowave was successfully updated." }
+        format.json { render :show, status: :ok, location: @radiowave }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @radiowafe.errors, status: :unprocessable_entity }
+        format.json { render json: @radiowave.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /radiowaves/1 or /radiowaves/1.json
   def destroy
-    @radiowafe.destroy
+    @radiowave.destroy
 
     respond_to do |format|
       format.html { redirect_to radiowaves_url, notice: "Radiowave was successfully destroyed." }
@@ -59,12 +60,12 @@ class RadiowavesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_radiowafe
-      @radiowafe = Radiowave.find(params[:id])
+    def set_radiowave
+      @radiowave = Radiowave.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
-    def radiowafe_params
-      params.require(:radiowafe).permit(:name)
+    def radiowave_params
+      params.require(:radiowave).permit(:name)
     end
 end
