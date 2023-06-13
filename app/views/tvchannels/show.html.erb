@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @tvchannel %>
+
+<p id="tvname" hidden><%= @tvchannel.name %></p>
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">ajouter une video</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+      <!-- Modal content -->
+            <div class="modal-content">
+                          <span class="close">&times;</span>
+                                      <div><%= render "videos/form", video: @video,mychannel: @tvchannel.id %></div>
+                                                        </div>
+
+</div>
+<div data-channel-vid="<%=@tvchannel.name%>">
+    <%=render @tvchannel.lasttenvideos%>
+</div>
+<div>
+  <%= link_to "Edit this tvchannel", edit_tvchannel_path(@tvchannel) %> |
+  <%= link_to "Back to tvchannels", tvchannels_path %>
+
+  <%= button_to "Destroy this tvchannel", @tvchannel, method: :delete %>
+</div>

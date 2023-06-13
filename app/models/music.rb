@@ -1,4 +1,7 @@
 class Music < ApplicationRecord
+  def self.lastten
+    last(10)
+  end
   attr_accessor :myradio
   before_save :saveradio
     has_many :radios

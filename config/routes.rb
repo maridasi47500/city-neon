@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :tvchannels
+  resources :videos do
+    collection do
+      post "addvideos"
+    end
+  end
 
   resources :musics do
     collection do
