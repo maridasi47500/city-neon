@@ -8,7 +8,7 @@ class RadiowavesController < ApplicationController
 
   # GET /radiowaves/1 or /radiowaves/1.json
   def show
-    @music=Music.new(myradio:@radiowave.id)
+    @music=Music.new(myradio:@radiowave.id,user_id:current_user.id)
   end
 
   # GET /radiowaves/new

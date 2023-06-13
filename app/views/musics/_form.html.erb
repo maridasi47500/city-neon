@@ -13,7 +13,8 @@
 
   <div>
     <%= form.label :filename, style: "display: block" %>
-    <%= form.file_field :filename, id: "file" %>
+    <%= form.file_field :filename, id: "file", accept:"audio/*",change:"processFile(file)" %>
+    <%= form.hidden_field :user_id, id: "userid" %>
 
   </div>
        <%= form.hidden_field :myradio,id:"myradio" %>

@@ -1,23 +1,8 @@
-body {
-	background:url("/assets/camouflage")
-}
-main {text-decoration-color: #582900;background: #228B22;}
-
-main h1 {
-	color:#582900;
-}
-main p {
-	color:#582900;
-	font-size:20px;
-}
-nav a, nav a.nav-link, nav a.nav-link.active {
-	color:white;
-}
-.navbar-brand{color:white;}
+/* The Modal (background) */
 .modal {
 	  display: none; /* Hidden by default */
 	    position: fixed; /* Stay in place */
-	      z-index: 30; /* Sit on top */
+	      z-index: 1; /* Sit on top */
 	        left: 0;
 		  top: 0;
 		    width: 100%; /* Full width */
@@ -50,7 +35,9 @@ nav a, nav a.nav-link, nav a.nav-link.active {
 						  text-decoration: none;
 						    cursor: pointer;
 					    }
-					    #myBtn{
-						    z-index:20;
-						    position:relative;
-					    }
+					    #record.recording {
+						        background: red;
+							    background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,black 75%,black 100%,#7db9e8 100%);
+							        background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%,black 75%,black 100%,#7db9e8 100%);
+								    background: radial-gradient(center, ellipse cover, #ff0000 0%,black 75%,black 100%,#7db9e8 100%);
+							    }

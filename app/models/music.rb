@@ -9,10 +9,14 @@ class Music < ApplicationRecord
     end
   end
   def filename=(uploaded_io)
-    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+    myfilename=uploaded_io.original_filename
+    if myfilename == "blob"
+      myfilename=uploaded_io.tempfile.path.split("/").last
+    end
+    File.open(Rails.root.join('public', 'uploads', myfilename), 'wb') do |file|
         file.write(uploaded_io.read)
     end
-    write_attribute(:filename,uploaded_io.original_filename)
+    write_attribute(:filename,myfilename)
   end
   def filename
     read_attribute(:filename)

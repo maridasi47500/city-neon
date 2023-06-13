@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @radiowafe %>
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">ajouter une musique</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+      <div class="modal-content">
+            <span class="close">&times;</span>
+            <div><%= render "musics/form", music: @music,myradio: @radiowave.id %></div>
+                  </div>
+
+</div>
+<div>
+  <%= link_to "Edit this radiowave", edit_radiowafe_path(@radiowafe) %> |
+  <%= link_to "Back to radiowaves", radiowaves_path %>
+
+  <%= button_to "Destroy this radiowave", @radiowafe, method: :delete %>
+</div>

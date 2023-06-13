@@ -9,9 +9,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-      <script src="/js/audiodisplay.js"></script>
-      <script src="/js/recorderjs/recorder.js"></script>
-      <script src="/js/main.js"></script>
+
 
     <link rel="stylesheet" href="/assets/<%=params[:controller]%>_<%=params[:action]%>.css" />
     <link href='https://fonts.googleapis.com/css?family=Vibur:400' rel='stylesheet' type='text/css'>
@@ -26,5 +24,8 @@
     <%= yield %>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="/assets/<%=params[:controller]%>_<%=params[:action]%>.js" type="text/javascript" />
+      <script src="/js/audiodisplay.js"></script>
+      <script src="/js/recorderjs/recorder.js"></script>
+      <script src="/js/main.js"></script>
   </body>
 </html>
